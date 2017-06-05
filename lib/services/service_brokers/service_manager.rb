@@ -58,11 +58,9 @@ module VCAP::Services::ServiceBrokers
           plan.public = false
         end
 
-        if catalog_plan.schemas && catalog_plan.schemas['service_instance'] && catalog_plan.schemas['service_instance']['create']
-          create_instance_schema = catalog_plan.schemas['service_instance']['create'].to_json
-        else
-          create_instance_schema = nil
-        end
+        create_instance_schema = if catalog_plan.schemas && catalog_plan.schemas['service_instance'] && catalog_plan.schemas['service_instance']['create']
+                                   catalog_plan.schemas['service_instance']['create'].to_json
+                                 end
 
         plan.set({
           name:        catalog_plan.name,

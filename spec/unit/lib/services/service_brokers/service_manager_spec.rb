@@ -33,7 +33,7 @@ module VCAP::Services::ServiceBrokers
       }
     end
     let(:plan_schemas_hash) do
-      { 'schemas' => { 'service_instance' => { 'create' => {'$schema': 'example.com/schema'}} }}
+      { 'schemas' => { 'service_instance' => { 'create' => { '$schema': 'example.com/schema' } } } }
     end
 
     let(:catalog_hash) do
@@ -239,7 +239,7 @@ module VCAP::Services::ServiceBrokers
       end
 
       context 'when the catalog service plan has no schemas key' do
-        let(:plan_schemas_hash) { { } }
+        let(:plan_schemas_hash) { {} }
 
         it 'leaves the plan schemas field as nil' do
           service_manager.sync_services_and_plans(catalog)
@@ -249,7 +249,7 @@ module VCAP::Services::ServiceBrokers
       end
 
       context 'when the catalog service plan has no create schema' do
-        let(:plan_schemas_hash) { { 'schemas' => { 'service_instance' => nil} } }
+        let(:plan_schemas_hash) { { 'schemas' => { 'service_instance' => nil } } }
 
         it 'leaves the plan schemas field as nil' do
           service_manager.sync_services_and_plans(catalog)

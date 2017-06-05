@@ -17,7 +17,7 @@ module CloudController::Presenters::V2
       end
 
       let(:service_plan) do
-        VCAP::CloudController::ServicePlan.make()
+        VCAP::CloudController::ServicePlan.make
       end
 
       before do
@@ -27,17 +27,17 @@ module CloudController::Presenters::V2
       it 'returns the service plan entity' do
         expect(subject.entity_hash(controller, service_plan, opts, depth, parents, orphans)).to eq(
           {
-           "active" => true,
-           "bindable" => true,
-           "description" => service_plan.description,
-           "extra" => nil,
-           "free" => false,
-           "name" => service_plan.name,
-           "public" => true,
-           "relationship_url" => "http://relationship.example.com",
-           "schemas" => {"service_instance"=>{"create"=>"{}"}},
-           "service_guid" => service_plan.service_guid,
-           "unique_id" => service_plan.unique_id
+           'active' => true,
+           'bindable' => true,
+           'description' => service_plan.description,
+           'extra' => nil,
+           'free' => false,
+           'name' => service_plan.name,
+           'public' => true,
+           'relationship_url' => 'http://relationship.example.com',
+           'schemas' => { 'service_instance' => { 'create' => '{}' } },
+           'service_guid' => service_plan.service_guid,
+           'unique_id' => service_plan.unique_id
           }
         )
       end

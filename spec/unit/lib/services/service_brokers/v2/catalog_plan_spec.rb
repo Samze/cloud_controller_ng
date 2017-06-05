@@ -11,7 +11,7 @@ module VCAP::Services::ServiceBrokers::V2
         'description' => opts[:description] || 'The description of the service plan',
         'free'        => opts.fetch(:free, true),
         'bindable'    => opts[:bindable],
-        'schemas'    => opts[:schemas] || {}
+        'schemas' => opts[:schemas] || {}
       }
     end
 

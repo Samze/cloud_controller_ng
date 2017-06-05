@@ -10,7 +10,7 @@ module CloudController
           schemas = {
             'schemas' => {
               'service_instance' => {
-                'create' => "{}"
+                'create' => '{}'
               }
             }
           }
