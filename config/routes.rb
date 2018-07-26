@@ -115,6 +115,9 @@ Rails.application.routes.draw do
   get '/service_bindings', to: 'service_bindings#index'
   delete '/service_bindings/:guid', to: 'service_bindings#destroy'
 
+  # service_bindings2
+  post '/external_service_bindings', to: 'external_service_bindings#external_create'
+
   # spaces
   post '/spaces', to: 'spaces_v3#create'
   get '/spaces', to: 'spaces_v3#index'
