@@ -11,7 +11,7 @@ class ExternalServiceBindingsController < ApplicationController
   include AppSubResource
 
   def external_create
-    message = ExternalServiceBindingCreateMessage.new(params[:body])
+    message = ExternalServiceBindingCreateMessage.new(hashed_params[:body])
     unprocessable!(message.errors.full_messages) unless message.valid?
 
     app = AppModel.first(guid: message.app_guid)
